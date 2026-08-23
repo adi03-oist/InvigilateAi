@@ -1,82 +1,110 @@
-# InvigilateAI – Smart Exam Supervision System
+﻿# InvigilateAI
 
-InvigilateAI is an AI-based exam supervision system designed to monitor candidates during online examinations using real-time face detection.  
-The system focuses on **clean monitoring**, **absence detection**, and **session logging**, following real-world proctoring principles.
+> AI-Based Smart Exam Supervision System using Computer Vision
 
----
+InvigilateAI is a computer-vision based examination monitoring system designed to monitor candidate face presence during online or controlled examinations.
 
-## 🚀 Features
+## Features
 
-- Real-time face detection using OpenCV DNN
-- Movement tolerance to avoid false absence alerts
-- Automatic absence detection after continuous face loss
-- Evidence capture through automatic screenshots
-- Session-wise CSV logging for monitoring records
-- Minimal and distraction-free exam-style interface
-- Separate Exam Mode and Debug Mode
+- Real-time webcam monitoring
+- Face detection using OpenCV DNN
+- Present, Recovering and Absent status detection
+- Automatic evidence screenshots
+- Session-wise CSV logging
+- Exam Mode and Debug Mode
+- Configurable monitoring sensitivity
+- Downloadable session reports
 
----
+## Tech Stack
 
-## 🧠 How It Works
+- Python
+- OpenCV
+- OpenCV DNN
+- Streamlit
+- NumPy
+- Pandas
 
-1. Start monitoring from the Admin Console  
-2. The system continuously checks face presence  
-3. Small movements are ignored using tolerance logic  
-4. Continuous absence is marked as a violation  
-5. Screenshots are captured as evidence  
-6. Session data is saved automatically in CSV format  
+## How It Works
 
----
+Webcam -> Frame Capture -> Face Detection -> Presence Analysis -> Evidence Capture -> Session Logging
 
-## 🛠 Tech Stack
+## Project Structure
 
-- Python  
-- OpenCV (DNN Face Detector)  
-- Streamlit  
-- NumPy  
-- Pandas  
+``text
+InvigilateAi/
+|-- app.py
+|-- dnn_detector.py
+|-- requirements.txt
+|-- README.md
+|-- .gitignore
 
----
+`` 
 
-## 📂 Project Structure
-InvigilateAI/ │ ├── app.py ├── dnn_detector.py ├── requirements.txt ├── README.md ├── .gitignore │ ├── models/ │   ├── deploy.prototxt │   └── res10_300x300_ssd_iter_140000.caffemodel
-Copy code
+## Installation
 
----
-
-## ▶️ How to Run Locally
-
-### 1. Install dependencies
-```bash
+``bash
+git clone https://github.com/adi03-oist/InvigilateAi.git
+cd InvigilateAi
+python -m venv .venv
+.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-2. Run the application
-Copy code
-Bash
 streamlit run app.py
-3. Usage
-Click Start Monitoring to begin supervision
-Monitor face presence in real time
-Click End Monitoring to generate session logs
-📊 Output
-Session logs are saved automatically as CSV files
-Screenshots are captured during absence violations
-Logs and screenshots are excluded from GitHub for privacy
-☁️ Deployment Note
-Due to browser security restrictions, direct webcam access is not supported on public cloud platforms.
-The application can be deployed publicly for UI and workflow demonstration
-Real-time camera monitoring is intended for local or controlled environments
-This reflects real-world exam proctoring system constraints.
-🎯 Use Cases
-Online examinations
-Interview monitoring
-Controlled remote assessments
-AI-based supervision demonstrations
-🔮 Future Enhancements
-Candidate identity verification
-Multi-face detection alerts
-Advanced analytics dashboard
-Cloud-based evidence storage
-👨‍💻 Author
-Developed as an academic and portfolio project to demonstrate applied computer vision and system design.
-📜 License
-This project is intended for educational and demonstration purposes.
+`` 
+
+## Monitoring Workflow
+
+1. Launch InvigilateAI.
+2. Select monitoring mode.
+3. Adjust sensitivity and evidence interval.
+4. Start monitoring.
+5. The system analyzes webcam frames.
+6. Face presence is classified as Present, Recovering or Absent.
+7. Continuous absence can trigger evidence capture.
+8. End the session to generate the summary.
+9. Download the session CSV.
+
+## Outputs
+
+Runtime logs are saved inside the logs folder and evidence screenshots inside the screenshots folder. These files are excluded from GitHub using .gitignore.
+
+## Limitations
+
+InvigilateAI is designed primarily for local or controlled environments where webcam access is available. Public cloud deployment may have browser webcam limitations.
+
+This project is an academic and portfolio prototype and should not be considered a certified examination proctoring system.
+
+## Monitoring Events
+
+The current system records:
+
+- Candidate presence
+- Temporary face loss / recovery
+- Continuous absence
+- Multiple-face detection
+- Evidence capture
+- Session-wise event timestamps
+
+Each monitoring session receives a unique Session ID for traceability.
+
+## Future Scope
+
+- Candidate identity verification
+- Multi-face detection and alerts
+- Head-pose and gaze analysis
+- Advanced suspicious-activity detection
+- Analytics dashboard
+- Database-backed session management
+- Role-based administrator access
+
+## Project Status
+
+Active Development
+
+## Author
+
+Aaditya Jain - CSE (Data Science), OIST Bhopal
+
+## License
+
+Educational and demonstration purposes.
+
