@@ -26,7 +26,7 @@ InvigilateAI is a computer-vision based examination monitoring system designed t
 
 ## How It Works
 
-Webcam -> Frame Capture -> Face Detection -> Presence Analysis -> Evidence Capture -> Session Logging
+Webcam -> Frame Capture -> Face Detection -> Presence Analysis -> Evidence Capture -> Session Logging.
 
 ## Project Structure
 
