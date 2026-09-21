@@ -1,6 +1,6 @@
 ﻿# InvigilateAI
 
-> AI-Based Smart Exam Supervision System using Computer Vision
+> AI-Based Smart Exam Supervision System using Computer Vision.
 
 InvigilateAI is a computer-vision based examination monitoring system designed to monitor candidate face presence during online or controlled examinations.
 
